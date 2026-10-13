@@ -24,7 +24,7 @@ jobs:
     name: Enlaces y formato de la documentación
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: "**/*.md"
