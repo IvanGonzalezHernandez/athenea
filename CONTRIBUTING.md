@@ -36,7 +36,7 @@ Ejemplo: `feature/12-ingesta-pdf`.
 6. Necesita **1 aprobación** y la CI en verde. Se integra con **squash merge**.
 7. Borra la rama tras el merge.
 
-Las versiones se publican abriendo una PR de `develop` a `main` y creando una etiqueta `vX.Y.Z` ([SemVer](https://semver.org/lang/es/)).
+Las versiones se publican abriendo una PR de `develop` a `main`, que se integra con **merge commit** (no squash, para que ambas ramas no diverjan), y creando una etiqueta `vX.Y.Z` ([SemVer](https://semver.org/lang/es/)).
 
 ## Commits
 
