@@ -1,0 +1,50 @@
+services:
+  mongo:
+    image: mongo:7
+    ports: ["27017:27017"]
+    volumes: [mongo_data:/data/db]
+
+  qdrant:
+    image: qdrant/qdrant
+    ports: ["6333:6333"]
+    volumes: [qdrant_data:/qdrant/storage]
+
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+
+  api:
+    build: ./api
+    ports: ["8000:8000"]
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379/0
+    depends_on: [mongo, qdrant, redis]
+
+  worker:
+    build: ./api
+    command: celery -A tareas worker
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379/0
+    depends_on: [mongo, qdrant, redis]
+
+  beat:
+    build: ./api
+    command: celery -A tareas beat
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on: [redis]
+
+  front:
+    build: ./front
+    ports: ["8501:8501"]
+    environment:
+      API_URL: http://api:8000
+    depends_on: [api]
+
+volumes:
+  mongo_data:
+  qdrant_data:

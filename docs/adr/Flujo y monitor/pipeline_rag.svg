@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 2519" width="1400" height="2519" role="img" aria-labelledby="dtitle">
+<title id="dtitle">Pipeline de ingesta documental para RAG</title>
+<defs>
+<marker id="a-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#1F3A5A"/></marker>
+<marker id="a-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C2C"/></marker>
+<marker id="a-amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#7A5A12"/></marker>
+<marker id="a-grn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#2E6046"/></marker>
+<marker id="a-sub" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#5A6572"/></marker>
+</defs>
+<rect width="1400" height="2519" fill="#FFFFFF"/>
+<text x="60" y="66" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="600" fill="#1E2630" text-anchor="start">Pipeline de ingesta documental para RAG</text>
+<text x="60" y="94" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#5A6572" text-anchor="start">Arquitectura de procesamiento asíncrono, no transaccional, con validación, deduplicación y reprocesado controlado</text>
+<line x1="60" y1="118" x2="1370" y2="118" stroke="#E1E6EB" stroke-width="1"/>
+<rect x="60" y="138" width="320" height="542" rx="6" fill="#F5F7F9" stroke="#E1E6EB" stroke-width="1"/>
+<text x="78" y="162" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">ENTRADA</text>
+<rect x="420" y="138" width="340" height="542" rx="6" fill="#F5F7F9" stroke="#E1E6EB" stroke-width="1"/>
+<text x="438" y="162" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">PERSISTENCIA · MONGODB</text>
+<rect x="790" y="138" width="580" height="542" rx="6" fill="#F5F7F9" stroke="#E1E6EB" stroke-width="1"/>
+<text x="808" y="162" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">PROCESAMIENTO ASÍNCRONO</text>
+<rect x="90" y="185" width="260" height="70" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="114" cy="209" r="11" fill="#1F3A5A"/>
+<text x="114" y="213.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="134" y="214" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Cliente / interfaz web</text>
+<text x="134" y="235" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Usuario autenticado con rol</text>
+<rect x="90" y="290" width="260" height="88" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="114" cy="314" r="11" fill="#1F3A5A"/>
+<text x="114" y="318.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="134" y="319" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">API FastAPI</text>
+<text x="134" y="340" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">POST /documentos</text>
+<text x="134" y="358" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Responde 202 + doc_id</text>
+<rect x="90" y="410" width="260" height="106" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="114" cy="434" r="11" fill="#1F3A5A"/>
+<text x="114" y="438.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="134" y="439" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Validación de entrada</text>
+<text x="134" y="460" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Firma %PDF · máx. 20 MB</text>
+<text x="134" y="478" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Sin contraseña ni corrupción</text>
+<text x="134" y="496" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">SHA-256 único (índice)</text>
+<rect x="90" y="550" width="260" height="104" rx="4" fill="#FBEEEE" stroke="#E3BDBD" stroke-width="1"/>
+<text x="106" y="579" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#9B2C2C" text-anchor="start">Rechazo inmediato</text>
+<text x="106" y="600" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">400 · fichero no válido</text>
+<text x="106" y="618" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">409 · duplicado, devuelve doc_id</text>
+<text x="106" y="636" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">500 · fallo al guardar en GridFS</text>
+<rect x="450" y="185" width="280" height="70" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="474" cy="209" r="11" fill="#1F3A5A"/>
+<text x="474" y="213.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="494" y="214" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">GridFS</text>
+<text x="494" y="235" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">PDF original, inmutable</text>
+<rect x="450" y="290" width="280" height="364" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="474" cy="314" r="11" fill="#1F3A5A"/>
+<text x="474" y="318.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="494" y="319" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Colección documentos</text>
+<line x1="466" y1="336" x2="714" y2="336" stroke="#E1E6EB"/>
+<text x="468" y="362" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1E2630" text-anchor="start">doc_id</text>
+<text x="468" y="392" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1E2630" text-anchor="start">gridfs_id</text>
+<text x="468" y="422" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1E2630" text-anchor="start">hash_sha256</text>
+<text x="468" y="452" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1E2630" text-anchor="start">hash_texto</text>
+<text x="468" y="482" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">tipo</text>
+<text x="468" y="512" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">fecha</text>
+<text x="468" y="542" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">autor</text>
+<text x="468" y="572" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">curso</text>
+<text x="468" y="602" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">departamento</text>
+<text x="595" y="362" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1F3A5A" text-anchor="start">estado</text>
+<text x="595" y="392" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1F3A5A" text-anchor="start">etapa_error</text>
+<text x="595" y="422" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1F3A5A" text-anchor="start">error_msg</text>
+<text x="595" y="452" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1F3A5A" text-anchor="start">intentos</text>
+<text x="595" y="482" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="500" fill="#1F3A5A" text-anchor="start">inicio_proceso</text>
+<text x="595" y="512" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">modelo_embed</text>
+<text x="595" y="542" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">version</text>
+<text x="595" y="572" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">vigente</text>
+<text x="595" y="602" font-family="'IBM Plex Mono', 'Consolas', 'Menlo', monospace" font-size="12" font-weight="400" fill="#5A6572" text-anchor="start">confidencial</text>
+<line x1="584" y1="346" x2="584" y2="632" stroke="#E1E6EB"/>
+<rect x="830" y="185" width="250" height="88" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="854" cy="209" r="11" fill="#1F3A5A"/>
+<text x="854" y="213.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">6</text>
+<text x="874" y="214" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Cola de tareas</text>
+<text x="874" y="235" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Celery · Redis</text>
+<text x="874" y="253" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Reintentos: 1 · 5 · 15 min</text>
+<rect x="830" y="305" width="250" height="106" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="854" cy="329" r="11" fill="#1F3A5A"/>
+<text x="854" y="333.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">7</text>
+<text x="874" y="334" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Worker</text>
+<text x="874" y="355" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Lee el PDF desde GridFS</text>
+<text x="874" y="373" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Extrae texto y genera chunks</text>
+<text x="874" y="391" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Comprueba texto y hash_texto</text>
+<rect x="1110" y="305" width="230" height="106" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<text x="1126" y="334" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Controles del worker</text>
+<text x="1126" y="355" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Sin texto: SIN_TEXTO (OCR)</text>
+<text x="1126" y="373" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Texto repetido: DUPLICADO</text>
+<text x="1126" y="391" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">No se vectoriza ninguno</text>
+<rect x="830" y="440" width="250" height="70" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="854" cy="464" r="11" fill="#1F3A5A"/>
+<text x="854" y="468.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">8</text>
+<text x="874" y="469" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Modelo de embeddings</text>
+<text x="874" y="490" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Versionado en modelo_embed</text>
+<rect x="1110" y="440" width="230" height="106" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<circle cx="1134" cy="464" r="11" fill="#1F3A5A"/>
+<text x="1134" y="468.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">9</text>
+<text x="1154" y="469" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Qdrant</text>
+<text x="1154" y="490" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Upsert idempotente</text>
+<text x="1154" y="508" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">id = uuid5(doc_id, n.º chunk)</text>
+<text x="1154" y="526" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">payload: vigente, confidencial</text>
+<rect x="830" y="545" width="250" height="106" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<text x="846" y="574" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Supervisor programado</text>
+<text x="846" y="595" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">PROCESANDO &gt; 15 min: ERROR</text>
+<text x="846" y="613" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Reconcilia MongoDB y Qdrant</text>
+<text x="846" y="631" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Limpia restos huérfanos</text>
+<rect x="1110" y="575" width="230" height="76" rx="4" fill="#FFFFFF" stroke="#C5CCD4" stroke-width="1"/>
+<text x="1126" y="604" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="600" fill="#1E2630" text-anchor="start">Monitorización</text>
+<text x="1126" y="625" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Documentos por estado</text>
+<text x="1126" y="643" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#5A6572" text-anchor="start">Tiempos y errores por etapa</text>
+<path d="M220 255 V287" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M220 378 V407" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M220 516 V547" fill="none" stroke="#9B2C2C" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-red)"/>
+<path d="M350 440 H392 V220 H447" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M350 480 H447" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M730 320 H772 V229 H827" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M955 273 V302" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M1080 358 H1107" fill="none" stroke="#5A6572" stroke-width="1.5" marker-end="url(#a-sub)"/>
+<path d="M955 411 V437" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M1080 475 H1107" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M830 380 H733" fill="none" stroke="#7A5A12" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-amb)"/>
+<text x="742" y="372" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#7A5A12" text-anchor="start">estado</text>
+<path d="M830 598 H733" fill="none" stroke="#7A5A12" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-amb)"/>
+<text x="740" y="590" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#7A5A12" text-anchor="start">timeout</text>
+<text x="60" y="716" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">CICLO DE VIDA DEL DOCUMENTO · CAMPO estado</text>
+<line x1="60" y1="728" x2="1370" y2="728" stroke="#E1E6EB"/>
+<rect x="60" y="752" width="180" height="50" rx="4" fill="#EEF2F7" stroke="#BCC8D6"/>
+<text x="150.0" y="775" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#1F3A5A" text-anchor="middle" letter-spacing="0.5">PDF OK</text>
+<text x="150.0" y="793" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1F3A5A" text-anchor="middle">PDF almacenado</text>
+<rect x="300" y="752" width="250" height="50" rx="4" fill="#FBF5E6" stroke="#E2D2A6"/>
+<text x="425.0" y="775" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#7A5A12" text-anchor="middle" letter-spacing="0.5">PROCESANDO VECTORES</text>
+<text x="425.0" y="793" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7A5A12" text-anchor="middle">hasta 3 reintentos automáticos</text>
+<rect x="610" y="752" width="230" height="50" rx="4" fill="#EDF5F0" stroke="#B9D3C4"/>
+<text x="725.0" y="775" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#2E6046" text-anchor="middle" letter-spacing="0.5">SUBIDA CON ÉXITO</text>
+<text x="725.0" y="793" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#2E6046" text-anchor="middle">disponible para consultas</text>
+<path d="M240 777 H297" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<path d="M550 777 H607" fill="none" stroke="#2E6046" stroke-width="1.5" marker-end="url(#a-grn)"/>
+<path d="M315 802 V905 H243" fill="none" stroke="#5A6572" stroke-width="1.5" marker-end="url(#a-sub)"/>
+<path d="M315 905 V1020 H243" fill="none" stroke="#5A6572" stroke-width="1.5" marker-end="url(#a-sub)"/>
+<rect x="60" y="880" width="180" height="50" rx="4" fill="#F2F4F6" stroke="#CDD3DA"/>
+<text x="150.0" y="903" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#46505C" text-anchor="middle" letter-spacing="0.5">DUPLICADO</text>
+<text x="150.0" y="921" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#46505C" text-anchor="middle">mismo texto que otro doc</text>
+<rect x="60" y="995" width="180" height="50" rx="4" fill="#F2F4F6" stroke="#CDD3DA"/>
+<text x="150.0" y="1018" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#46505C" text-anchor="middle" letter-spacing="0.5">SIN TEXTO</text>
+<text x="150.0" y="1036" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#46505C" text-anchor="middle">escaneado, requiere OCR</text>
+<path d="M400 802 V877" fill="none" stroke="#9B2C2C" stroke-width="1.5" marker-end="url(#a-red)"/>
+<text x="410" y="826" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#9B2C2C" text-anchor="start">reintentos agotados</text>
+<rect x="350" y="880" width="190" height="50" rx="4" fill="#FBEEEE" stroke="#E3BDBD"/>
+<text x="445.0" y="903" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#9B2C2C" text-anchor="middle" letter-spacing="0.5">ERROR</text>
+<text x="445.0" y="921" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9B2C2C" text-anchor="middle">registra etapa y mensaje</text>
+<path d="M540 905 H597" fill="none" stroke="#1F3A5A" stroke-width="1.5" marker-end="url(#a-navy)"/>
+<rect x="600" y="880" width="330" height="50" rx="4" fill="#FBF5E6" stroke="#E2D2A6"/>
+<text x="765.0" y="903" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#7A5A12" text-anchor="middle" letter-spacing="0.5">REPROCESADO MANUAL</text>
+<text x="765.0" y="921" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7A5A12" text-anchor="middle">botón Reprocesar errores, tras arreglar la causa</text>
+<path d="M765 880 V842 H490 V805" fill="none" stroke="#7A5A12" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-amb)"/>
+<text x="560" y="834" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="#7A5A12" text-anchor="start">elimina los vectores del documento y vuelve a la cola</text>
+<rect x="1140" y="752" width="230" height="196" rx="4" fill="#F5F7F9" stroke="#E1E6EB"/>
+<text x="1158" y="778" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">GARANTÍAS DEL DISEÑO</text>
+<circle cx="1161" cy="803" r="2.5" fill="#1F3A5A"/>
+<text x="1171" y="807" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">El PDF original nunca se pierde</text>
+<circle cx="1161" cy="825" r="2.5" fill="#1F3A5A"/>
+<text x="1171" y="829" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">Sin duplicados en MongoDB</text>
+<text x="1171" y="851" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">ni en Qdrant</text>
+<circle cx="1161" cy="869" r="2.5" fill="#1F3A5A"/>
+<text x="1171" y="873" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">Ningún documento bloqueado</text>
+<circle cx="1161" cy="891" r="2.5" fill="#1F3A5A"/>
+<text x="1171" y="895" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">Errores trazables por etapa</text>
+<circle cx="1161" cy="913" r="2.5" fill="#1F3A5A"/>
+<text x="1171" y="917" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">Confidenciales fuera del RAG</text>
+<circle cx="1161" cy="935" r="2.5" fill="#1F3A5A"/>
+<text x="1171" y="939" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" fill="#1E2630" text-anchor="start">API no bloqueante</text>
+<text x="60" y="1090" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">CONTROL DE ERRORES · REINTENTO AUTOMÁTICO VS REPROCESADO MANUAL</text>
+<line x1="60" y1="1102" x2="1370" y2="1102" stroke="#E1E6EB"/>
+<rect x="60" y="1118" width="1310" height="34" fill="#1F3A5A"/>
+<text x="74" y="1140" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="start">Aspecto</text>
+<text x="304" y="1140" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="start">Automático (cola de tareas)</text>
+<text x="844" y="1140" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="start">Manual (botón Reprocesar)</text>
+<rect x="60" y="1152" width="1310" height="36" fill="#FFFFFF" stroke="#E1E6EB"/>
+<text x="74" y="1175" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1E2630" text-anchor="start">Para qué fallos</text>
+<text x="304" y="1175" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Temporales: un servicio caído, un corte de red, un límite de peticiones</text>
+<text x="844" y="1175" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Persistentes: necesitan que alguien arregle algo antes</text>
+<rect x="60" y="1188" width="1310" height="54" fill="#F5F7F9" stroke="#E1E6EB"/>
+<text x="74" y="1211" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1E2630" text-anchor="start">Ejemplos</text>
+<text x="304" y="1211" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Qdrant reiniciándose, error 429 de la API de embeddings</text>
+<text x="844" y="1211" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Un bug en el código ya corregido, el servidor de embeddings caído toda la</text>
+<text x="844" y="1229" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">tarde, un cambio de modelo</text>
+<rect x="60" y="1242" width="1310" height="36" fill="#FFFFFF" stroke="#E1E6EB"/>
+<text x="74" y="1265" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1E2630" text-anchor="start">Quién actúa</text>
+<text x="304" y="1265" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Nadie, se resuelve solo</text>
+<text x="844" y="1265" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Una persona, después de arreglar la causa</text>
+<rect x="60" y="1278" width="1310" height="54" fill="#F5F7F9" stroke="#E1E6EB"/>
+<text x="74" y="1301" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" fill="#1E2630" text-anchor="start">Límite de intentos</text>
+<text x="304" y="1301" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Hasta 3 reintentos con espera creciente; si se agotan, pasa a ERROR</text>
+<text x="844" y="1301" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">Sin límite automático: decide una persona. El campo intentos queda como</text>
+<text x="844" y="1319" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1E2630" text-anchor="start">información</text>
+<text x="60" y="1376" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" fill="#5A6572" text-anchor="start" letter-spacing="1.2">EL FLUJO PASO A PASO</text>
+<line x1="60" y1="1388" x2="1370" y2="1388" stroke="#E1E6EB"/>
+<circle cx="76" cy="1422" r="11" fill="#1F3A5A"/>
+<text x="76" y="1426.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="104" y="1427" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Cliente / interfaz web</text>
+<text x="104" y="1449" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">El usuario, autenticado y con su rol, sube el PDF junto con sus metadatos: tipo, fecha, curso, departamento y autor.</text>
+<circle cx="76" cy="1490" r="11" fill="#1F3A5A"/>
+<text x="76" y="1494.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="104" y="1495" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">API FastAPI</text>
+<text x="104" y="1517" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Recibe la petición en POST /documentos. No procesa el PDF: valida, guarda y responde enseguida con 202 y el doc_id, para que el usuario no tenga que esperar a que termine</text>
+<text x="104" y="1536" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">el procesado.</text>
+<circle cx="76" cy="1577" r="11" fill="#1F3A5A"/>
+<text x="76" y="1581.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="104" y="1582" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Validación de entrada</text>
+<text x="104" y="1604" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Comprueba que el fichero es un PDF real (firma %PDF), que no supera 20 MB y que no está protegido ni corrupto. Calcula su huella SHA-256: si ya existe, responde 409 con el</text>
+<text x="104" y="1623" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">doc_id del documento original. Cualquier fichero no válido se rechaza aquí, antes de guardar nada.</text>
+<circle cx="76" cy="1664" r="11" fill="#1F3A5A"/>
+<text x="76" y="1668.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="104" y="1669" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">GridFS</text>
+<text x="104" y="1691" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Guarda el PDF original sin modificar. Es la fuente de verdad: cualquier reprocesado parte de este fichero sin pedir nada al usuario. Si este guardado falla, la API devuelve</text>
+<text x="104" y="1710" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">500 y el usuario repite la subida.</text>
+<circle cx="76" cy="1751" r="11" fill="#1F3A5A"/>
+<text x="76" y="1755.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="104" y="1756" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Colección documentos</text>
+<text x="104" y="1778" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Crea la ficha del documento: sus metadatos, enlazados al PDF mediante gridfs_id, y el campo estado con el valor inicial PDF OK, que confirma que el fichero se ha guardado</text>
+<text x="104" y="1797" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">bien en GridFS. Esta ficha permite saber en todo momento en qué punto está cada PDF y qué falló si algo va mal.</text>
+<circle cx="76" cy="1838" r="11" fill="#1F3A5A"/>
+<text x="76" y="1842.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">6</text>
+<text x="104" y="1843" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Cola de tareas</text>
+<text x="104" y="1865" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Recibe el doc_id y reparte el trabajo entre los workers. Si una tarea falla por un problema temporal, la reintenta hasta 3 veces con espera creciente (1, 5 y 15 minutos)</text>
+<text x="104" y="1884" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">sin bloquear al resto de documentos.</text>
+<circle cx="76" cy="1925" r="11" fill="#1F3A5A"/>
+<text x="76" y="1929.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">7</text>
+<text x="104" y="1930" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Worker</text>
+<text x="104" y="1952" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Pasa el estado a PROCESANDO VECTORES, lee el PDF desde GridFS, extrae el texto y lo divide en chunks. Si no hay texto, marca el documento como SIN TEXTO (requiere OCR); si</text>
+<text x="104" y="1971" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">el texto ya existe en otro documento, lo marca como DUPLICADO. En ambos casos no se vectoriza.</text>
+<circle cx="76" cy="2012" r="11" fill="#1F3A5A"/>
+<text x="76" y="2016.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">8</text>
+<text x="104" y="2017" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Modelo de embeddings</text>
+<text x="104" y="2039" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Convierte cada chunk en un vector. La versión del modelo se guarda en modelo_embed para saber qué documentos hay que reindexar si un día se cambia de modelo.</text>
+<circle cx="76" cy="2080" r="11" fill="#1F3A5A"/>
+<text x="76" y="2084.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">9</text>
+<text x="104" y="2085" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Qdrant</text>
+<text x="104" y="2107" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Guarda los vectores con un id determinista (doc_id + número de chunk), de modo que repetir el proceso sobrescribe en lugar de duplicar. El payload incluye vigente y</text>
+<text x="104" y="2126" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">confidencial para filtrar las búsquedas. Al terminar, el estado pasa a SUBIDA CON ÉXITO.</text>
+<rect x="65" y="2156" width="22" height="22" rx="4" fill="#FFFFFF" stroke="#1F3A5A" stroke-width="1.2"/>
+<text x="76" y="2171.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1F3A5A" text-anchor="middle">S</text>
+<text x="104" y="2172" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Supervisión y monitorización</text>
+<text x="104" y="2194" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Un supervisor programado se ejecuta cada pocos minutos y hace dos comprobaciones. Primero, pasa a ERROR los documentos que llevan más de 15 minutos en PROCESANDO, por</text>
+<text x="104" y="2213" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">ejemplo porque el worker se cayó a mitad, para que no se queden bloqueados. Segundo, compara MongoDB con Qdrant: si encuentra vectores cuyo doc_id ya no existe en la</text>
+<text x="104" y="2232" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">colección, que son restos de un borrado que quedó a medias, los elimina. El panel de monitorización muestra los documentos por estado, los tiempos de procesado y los</text>
+<text x="104" y="2251" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">errores por etapa.</text>
+<rect x="65" y="2281" width="22" height="22" rx="4" fill="#FFFFFF" stroke="#1F3A5A" stroke-width="1.2"/>
+<text x="76" y="2296.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1F3A5A" text-anchor="middle">B</text>
+<text x="104" y="2297" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Borrado de un documento</text>
+<text x="104" y="2319" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Cuando alguien elimina un documento, por ejemplo porque se subió por error o ya no está vigente, la API recibe DELETE /documentos/{doc_id} y lo borra en cascada: elimina su</text>
+<text x="104" y="2338" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">ficha de la colección, su PDF de GridFS y todos sus vectores de Qdrant, filtrando por su doc_id. Así el chatbot deja de usar ese documento. El borrado afecta solo a ese</text>
+<text x="104" y="2357" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">documento; el resto no se toca. Si el borrado se queda a medias, por ejemplo porque Qdrant no responde en ese momento, el supervisor elimina después los restos.</text>
+<rect x="65" y="2387" width="22" height="22" rx="4" fill="#FFFFFF" stroke="#1F3A5A" stroke-width="1.2"/>
+<text x="76" y="2402.5" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1F3A5A" text-anchor="middle">E</text>
+<text x="104" y="2403" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#1E2630" text-anchor="start">Gestión de errores</text>
+<text x="104" y="2425" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">Si se agotan los reintentos automáticos, el documento queda en ERROR con la etapa y el mensaje del fallo. Una vez corregida la causa, el botón Reprocesar errores elimina</text>
+<text x="104" y="2444" font-family="'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="400" fill="#3A4450" text-anchor="start">sus vectores de Qdrant y lo devuelve a la cola, empezando de nuevo desde el paso 6.</text>
+</svg>
