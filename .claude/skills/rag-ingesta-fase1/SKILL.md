@@ -1,6 +1,6 @@
 ---
 name: rag-ingesta-fase1
-description: Construir la fase 1 del pipeline RAG de PDFs: API FastAPI con roles, validación de entrada, deduplicación y persistencia en MongoDB (GridFS + ficha con estado PDF OK).
+description: "Construir la fase 1 del pipeline RAG de PDFs: API FastAPI con roles, validación de entrada, deduplicación y persistencia en MongoDB (GridFS + ficha con estado PDF OK)."
 ---
 
 # Pipeline RAG de PDFs · Fase 1: entrada y persistencia
