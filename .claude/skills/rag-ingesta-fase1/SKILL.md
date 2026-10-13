@@ -9,7 +9,8 @@ Guía para implementar la primera fase del gestor documental RAG: desde que el u
 
 ## Alcance
 
-**Dentro de esta fase**
+### Dentro de esta fase
+
 - API FastAPI con autenticación JWT y control por roles.
 - Validación del fichero: firma PDF, tamaño, páginas, contraseña, corrupción.
 - Deduplicación por SHA-256 del fichero.
@@ -18,7 +19,8 @@ Guía para implementar la primera fase del gestor documental RAG: desde que el u
 - Consulta, descarga y borrado de documentos; estadísticas por estado.
 - Docker Compose con `mongo` + `api`.
 
-**Fuera de esta fase (fase 2, no implementar)**
+### Fuera de esta fase (fase 2, no implementar)
+
 - Celery, Redis, workers y supervisor.
 - Extracción de texto, chunks, `hash_texto`, embeddings y Qdrant.
 - Reintentos automáticos y reprocesado.
@@ -36,7 +38,7 @@ Deja preparado el punto de enganche (ver "Enganche con la fase 2") pero no imple
 
 ## Estructura del proyecto (MVC)
 
-```
+```text
 proyecto-rag/
 ├── docker-compose.yml
 └── api/
@@ -68,7 +70,8 @@ proyecto-rag/
     └── tests/
 ```
 
-**Reglas de capas (obligatorias)**
+### Reglas de capas (obligatorias)
+
 - Los routers no importan `pymongo` ni tocan colecciones: llaman a servicios.
 - Los servicios no conocen HTTP: lanzan `ErrorDominio`, nunca `HTTPException`.
 - Solo los repositorios acceden a MongoDB y GridFS.
@@ -76,7 +79,7 @@ proyecto-rag/
 ## Configuración (variables de entorno)
 
 | Variable | Por defecto | Uso |
-|---|---|---|
+| --- | --- | --- |
 | `MONGO_URL` | `mongodb://mongo:27017` | Conexión a MongoDB |
 | `MONGO_DB` | `rag` | Base de datos |
 | `MAX_MB` | `20` | Tamaño máximo del PDF |
@@ -112,7 +115,7 @@ class Rol(str, Enum):
 ### Colección `documentos` (una ficha por PDF)
 
 | Campo | Tipo | Fase 1 |
-|---|---|---|
+| --- | --- | --- |
 | `doc_id` | str (uuid4) | Se genera al subir |
 | `gridfs_id` | ObjectId | Enlace al PDF en GridFS |
 | `nombre_original` | str | Nombre del fichero subido |
@@ -149,7 +152,7 @@ Crea los campos reservados con `null` desde ahora para que la fase 2 no tenga qu
 ## Permisos por rol
 
 | Acción | Administración | Editor | Lectura |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Consultar y descargar documentos | Sí | Sí | Sí, sin confidenciales |
 | Subir PDF | Sí | Sí | No |
 | Eliminar documento | Sí | No | No |
@@ -160,7 +163,7 @@ Los permisos se comprueban **en la API** con una dependencia (`requiere_rol(Rol.
 ## Endpoints
 
 | Método y ruta | Rol | Respuesta correcta |
-|---|---|---|
+| --- | --- | --- |
 | `POST /auth/login` | público | 200 `{access_token, rol}` |
 | `POST /documentos` | admin, editor | 202 `{doc_id, estado: "PDF OK"}` |
 | `GET /documentos` | todos | 200, lista paginada con filtros `estado`, `tipo`, `departamento`, `vigente` |
@@ -234,7 +237,7 @@ Todas las respuestas de error tienen el mismo formato:
 ```
 
 | HTTP | Código | Cuándo |
-|---|---|---|
+| --- | --- | --- |
 | 400 | `NO_ES_PDF`, `PDF_PROTEGIDO`, `PDF_CORRUPTO`, `DEMASIADAS_PAGINAS` | Validación del fichero |
 | 401 | `NO_AUTENTICADO` | Sin token o token inválido o caducado |
 | 403 | `SIN_PERMISO` | Rol insuficiente |

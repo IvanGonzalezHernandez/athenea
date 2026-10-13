@@ -47,6 +47,8 @@ Servicios de `ide de compose.txt`: `mongo` (27017), `qdrant` (6333), `redis` (63
 
 La API valida y guarda el PDF, crea la ficha en estado `PDF OK` y responde `202` con el `doc_id`. Un worker lo trocea, vectoriza y lo sube a Qdrant. Un supervisor desbloquea los atascos y limpia los restos.
 
+Para implementar la fase 1 (API, validación, GridFS y ficha en `PDF OK`, sin Celery ni Qdrant), sigue la skill `rag-ingesta-fase1`, que fija las capas, los endpoints, el orden de validación, los códigos de error y las pruebas.
+
 Lee `references/pipeline.md` antes de tocar cualquier parte de la ingesta, los estados, los reintentos, el borrado o el supervisor. Ahí están los códigos HTTP, los campos de la colección, el ciclo de vida completo y las garantías que el diseño debe mantener.
 
 Reglas que se rompen con facilidad, y por qué importan:
