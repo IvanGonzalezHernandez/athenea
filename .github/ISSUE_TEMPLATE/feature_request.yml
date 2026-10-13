@@ -1,0 +1,29 @@
+name: Propuesta de funcionalidad
+description: Una idea o mejora para Athenea
+title: "[Feature]: "
+labels: ["tipo: feature", "estado: triaje"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema u objetivo
+      description: ¿Qué necesidad cubre? Ejemplo "Como alumno quiero… para…"
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      placeholder: |
+        - [ ] …
+        - [ ] …
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas

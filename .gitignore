@@ -1,0 +1,38 @@
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+
+# Datos locales del RAG
+data/raw/
+data/processed/
+vectorstore/
+*.faiss
+chroma/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editores y sistema
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.log

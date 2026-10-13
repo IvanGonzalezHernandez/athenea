@@ -1,0 +1,33 @@
+name: Informe de error
+description: Algo no funciona como debería
+title: "[Bug]: "
+labels: ["tipo: bug", "estado: triaje"]
+body:
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Descripción
+      description: ¿Qué ha pasado?
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: |
+        1. Ir a…
+        2. Pulsar…
+        3. Ver el error
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamiento esperado
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto adicional
+      description: Logs, capturas, versión, sistema operativo…

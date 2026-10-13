@@ -1,0 +1,4 @@
+# Reglas relajadas para documentación en español
+MD013: false   # longitud de línea
+MD033: false   # HTML en línea
+MD041: false   # el primer renglón no tiene por qué ser un título (plantillas)
